@@ -1,4 +1,4 @@
-String.prototype.parseFlagsWithOptions = function parseFlagsWithOptions(amount) {
+function parseFlagsWithOptions(amount) {
     let regex = /(^--|\s--)(\w+)(:)(\w+)/g, flags = [], string = [], maxFlags = false;
     !amount ? amount = Infinity : amount = amount
     this.split(' ').map(arr => {
