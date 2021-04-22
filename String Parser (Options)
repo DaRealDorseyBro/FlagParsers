@@ -1,0 +1,9 @@
+String.prototype.parseFlagsWithOptions = function parseFlagsWithOptions(amount) {
+    let regex = /(^--|\s--)(\w+)(:)(\w+)/g, flags = [], string = [], maxFlags = false
+    !amount ? amount = Infinity : amount = amount
+    this.split(' ').map(arr => {
+        maxFlags === false ? (arr.match(regex) ? flags.push({flag: arr.split(':')[0].slice(2), option: arr.split(':')[1]}) : string.push(arr)) : string.push(arr);
+        flags.length >= amount ? maxFlags = true : maxFlags = false;
+    })
+    return {flags: flags, str: string.join(' '), maxFlags: amount}
+}
