@@ -1,0 +1,9 @@
+function parseFlags(amount) {
+    let regex = /(^--|\s--)(\w+)/g, flags = [], string = [], maxFlags = false, str = this.join(' ')
+    !amount ? amount = Infinity : amount = amount
+    str.split(' ').forEach(arr => {
+        maxFlags === false ? (arr.match(regex) ? flags.push(arr.slice(2)) : string.push(arr)) : string.push(arr)
+        flags.length >= amount ? maxFlags = true : maxFlags = false
+    })
+    return {flags: flags, arr: string, maxFlags: amount}
+}
