@@ -1,5 +1,5 @@
 function parseFlags(amount) {
-    let regex = /(^--|\s--)(\w+)/g, flags = [], string = [], maxFlags = false
+    let regex = /(^--|\s--)(\w+)/g, flags = [], string = [], maxFlags = false;
     !amount ? amount = Infinity : amount = amount
     this.split(' ').map(arr => {
         maxFlags === false ? (arr.match(regex) ? flags.push(arr.slice(2)) : string.push(arr)) : string.push(arr)
